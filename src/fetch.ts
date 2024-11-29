@@ -9,7 +9,7 @@ export const weatherApi = {
   getWeatherByCity: async (): Promise<WeatherData> => {
     try {
       const response = await axios.get<WeatherData>(
-        `${BASE_URL}/weather?lat=${LAT}&lon=${LON}&appid=${process.env.API_KEY}`
+        `${BASE_URL}/weather?lat=${LAT}&lon=${LON}&appid=${process.env.REACT_APP_API_KEY}`
       );
       return response.data;
     } catch (error) {

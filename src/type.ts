@@ -1,14 +1,14 @@
-export interface Coordinates {
+export type Coordinates = {
   lon: number;
   lat: number;
-}
-export interface WeatherCondition {
+};
+export type WeatherCondition = {
   id: number;
   main: string;
   description: string;
   icon: string;
-}
-export interface MainWeatherData {
+};
+export type MainWeatherData = {
   temp: number;
   feels_like: number;
   temp_min: number;
@@ -17,26 +17,26 @@ export interface MainWeatherData {
   humidity: number;
   sea_level: number;
   grnd_level: number;
-}
+};
 
-export interface Wind {
+export type Wind = {
   speed: number;
   deg: number;
   gust: number;
-}
+};
 
-export interface Clouds {
+export type Clouds = {
   all: number;
-}
+};
 
-export interface SystemInfo {
+export type SystemInfo = {
   type: number;
   id: number;
   country: string;
   sunrise: number;
   sunset: number;
-}
-export interface WeatherData {
+};
+export type WeatherData = {
   coord: Coordinates;
   weather: WeatherCondition[];
   base: string;
@@ -50,4 +50,4 @@ export interface WeatherData {
   id: number;
   name: string;
   cod: number;
-}
+};

@@ -21,42 +21,56 @@ const WeatherDisplay = () => {
   if (!weatherData) return null;
 
   return (
-    <div className='p-6 max-w-md mx-auto bg-white rounded-xl shadow-md flex justify-center items-center'>
-      <h1 className='text-2xl font-bold mb-4'>{weatherData.name}</h1>
+    <div className='flex justify-center items-center bg-gradient-to-br from-blue-100 via-blue-300 to-blue-500 min-h-screen py-10 p-16'>
+      <div className='p-6 max-w-md bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center'>
+        <h1 className='text-3xl font-bold mb-6 text-gray-800'>
+          {weatherData.name}
+        </h1>
 
-      <div className='space-y-4'>
-        <div className='flex items-center'>
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt={weatherData.weather[0].description}
-            className='w-16 h-16'
-          />
-          <div className='ml-4'>
-            <p className='text-xl'>
-              {convertKelvinToCelsius(weatherData.main.temp)}°C
-            </p>
-            <p className='text-gray-600'>
-              {weatherData.weather[0].description}
-            </p>
+        <div className='space-y-6 w-full'>
+          {/* 현재 날씨 아이콘 및 정보 */}
+          <div className='flex items-center'>
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+              alt={weatherData.weather[0].description}
+              className='w-20 h-20'
+            />
+            <div className='ml-6'>
+              <p className='text-2xl font-semibold text-gray-700'>
+                {convertKelvinToCelsius(weatherData.main.temp)}°C
+              </p>
+              <p className='text-gray-600 capitalize'>
+                {weatherData.weather[0].description}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div className='grid grid-cols-2 gap-4'>
-          <div>
-            <p className='text-gray-600'>체감 온도</p>
-            <p>{convertKelvinToCelsius(weatherData.main.feels_like)}°C</p>
-          </div>
-          <div>
-            <p className='text-gray-600'>습도</p>
-            <p>{weatherData.main.humidity}%</p>
-          </div>
-          <div>
-            <p className='text-gray-600'>풍속</p>
-            <p>{weatherData.wind.speed} m/s</p>
-          </div>
-          <div>
-            <p className='text-gray-600'>기압</p>
-            <p>{weatherData.main.pressure} hPa</p>
+          {/* 세부 날씨 정보 */}
+          <div className='grid grid-cols-2 gap-6 text-center'>
+            <div className='bg-blue-50 rounded-xl p-4 shadow-md'>
+              <p className='text-sm text-gray-600'>체감 온도</p>
+              <p className='text-lg font-bold text-gray-800'>
+                {convertKelvinToCelsius(weatherData.main.feels_like)}°C
+              </p>
+            </div>
+            <div className='bg-blue-50 rounded-xl p-4 shadow-md'>
+              <p className='text-sm text-gray-600'>습도</p>
+              <p className='text-lg font-bold text-gray-800'>
+                {weatherData.main.humidity}%
+              </p>
+            </div>
+            <div className='bg-blue-50 rounded-xl p-4 shadow-md'>
+              <p className='text-sm text-gray-600'>풍속</p>
+              <p className='text-lg font-bold text-gray-800'>
+                {weatherData.wind.speed} m/s
+              </p>
+            </div>
+            <div className='bg-blue-50 rounded-xl p-4 shadow-md'>
+              <p className='text-sm text-gray-600'>기압</p>
+              <p className='text-lg font-bold text-gray-800'>
+                {weatherData.main.pressure} hPa
+              </p>
+            </div>
           </div>
         </div>
       </div>
