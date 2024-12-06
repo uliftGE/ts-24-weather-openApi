@@ -28,7 +28,6 @@ const WeatherDisplay = () => {
         </h1>
 
         <div className='space-y-6 w-full'>
-          {/* 현재 날씨 아이콘 및 정보 */}
           <div className='flex items-center'>
             <img
               src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
@@ -45,7 +44,6 @@ const WeatherDisplay = () => {
             </div>
           </div>
 
-          {/* 세부 날씨 정보 */}
           <div className='grid grid-cols-2 gap-6 text-center'>
             <div className='bg-blue-50 rounded-xl p-4 shadow-md'>
               <p className='text-sm text-gray-600'>체감 온도</p>
