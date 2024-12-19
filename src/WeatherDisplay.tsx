@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { weatherApi } from './fetch.ts';
-import { WeatherData } from './type.ts';
+import { weatherApi } from './fetch';
+import { WeatherData } from './type';
 import React from 'react';
 const WeatherDisplay = () => {
   const {
